@@ -1,0 +1,370 @@
+/* ========== BASE ========== */
+/* Hace que el tamaño de todos los elementos sea más predecible */
+* {
+  box-sizing: border-box;
+}
+
+/* Quita márgenes por defecto del navegador */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== ESTILO GENERAL ========== */
+/* Fondo general y tipografía principal */
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f3f3 100%);
+  color: #222;
+}
+
+/* Contenedor principal de la página */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px 40px;
+  text-align: center;
+}
+
+/* ========== ENCABEZADO ========== */
+/* Línea superior con la ciudad */
+.hero__top {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #000;
+}
+
+/* Quitamos márgenes del texto superior */
+.hero__top p {
+  margin: 0;
+}
+
+/* Correo debajo de la ciudad */
+.hero__mail {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+
+/* Nombre principal */
+.hero__title {
+  margin: 16px 0 8px;
+  font-size: clamp(2.1rem, 7vw, 5.2rem);
+  line-height: 0.92;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+/* ========== TARJETAS / FOTOS ========== */
+/* Contenedor de las tarjetas */
+.stack {
+  position: relative;
+  width: min(980px, 100%);
+  height: 280px;
+  margin: 14px auto 10px;
+}
+
+/* Tarjeta base */
+.card {
+  position: absolute;
+  width: 200px;
+  height: 225px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.15);
+  transform-origin: center;
+}
+
+/* Posición de cada tarjeta */
+.card--one { left: 11%; top: 16%; transform: rotate(-4deg); }
+.card--two { left: 31%; top: 8%; transform: rotate(-2deg); }
+.card--three { left: 49%; top: 12%; transform: rotate(6deg); }
+.card--four { left: 67%; top: 16%; transform: rotate(-3deg); }
+
+/* Contenido visual de cada tarjeta */
+.card__art {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Fondos tipo foto */
+.card__art--green {
+  background: linear-gradient(135deg, #d9ff60, #97de71);
+}
+
+.card__art--blue {
+  background: linear-gradient(135deg, #1598ff, #67d1ff);
+}
+
+.card__art--yellow {
+  background: linear-gradient(135deg, #c9ff2e, #95d700);
+}
+
+.card__art--pink {
+  background: linear-gradient(135deg, #ffe6ec, #ffd3dd);
+}
+
+/* Etiqueta interna */
+.card__art span {
+  padding: 14px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+/* ========== HOVER ========== */
+/* Las tarjetas se mantienen quietas hasta que el mouse pasa encima */
+.float {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+  will-change: transform;
+}
+
+/* Un solo rebote sutil al hover */
+.float:hover {
+  animation: hoverBounce 0.45s ease-out 1;
+  box-shadow: 0 32px 58px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Rebote simple */
+@keyframes hoverBounce {
+  0% { transform: translateY(0); }
+  45% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* ========== TEXTO DECORATIVO ========== */
+/* Texto grande gris */
+.hero__big {
+  max-width: 1100px;
+  margin: 12px 0 0;
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: #a0a0a0;
+}
+
+/* ========== TECNOLOGÍAS ========== */
+/* Bloque completo de tecnologías */
+.tech_big {
+  margin-top: 24px;
+}
+
+/* Título del bloque */
+.tech_big h3 {
+  margin: 0;
+  font-size: 3.15rem;
+  letter-spacing: 0.2em;
+  font-weight: 900;
+  color: #a0a0a0;
+}
+
+/* Tabla de tecnologías */
+.logos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(95px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  width: min(560px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cada celda de la tabla */
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+/* Iconos */
+.logo-item i {
+  font-size: 3.35rem;
+  color: #111;
+  line-height: 1;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Centra el dibujo real del icono dentro de su caja */
+.logo-item i::before {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* Nombre de cada tecnología */
+.logo-item span {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #444;
+}
+
+/* ========== PROYECTOS ========== */
+/* Sección general de proyectos */
+.proyectos {
+  width: min(1100px, 100%);
+  margin-top: 34px;
+}
+
+/* Título de proyectos */
+.proyectos h3 {
+  margin: 0 0 18px;
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  font-weight: 900;
+  color: #a0a0a0;
+}
+
+/* Rejilla centrada para proyectos */
+.projects-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 8px 0 18px;
+}
+
+/* Tarjeta de proyecto */
+.project-card {
+  flex: 0 0 320px;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+  scroll-snap-align: start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-origin: center;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.16);
+}
+
+/* Área visual del proyecto */
+.project-card__art {
+  height: 190px;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-card__art--one {
+  background: linear-gradient(135deg, #d9ff60, #97de71);
+}
+
+.project-card__art--two {
+  background: linear-gradient(135deg, #1598ff, #67d1ff);
+}
+
+.project-card__art--three {
+  background: linear-gradient(135deg, #ffe6ec, #ffd3dd);
+}
+
+/* Texto del proyecto */
+.project-card__body {
+  padding: 16px 18px 20px;
+  text-align: left;
+}
+
+.project-card__body h4 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.project-card__body p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* Pista breve para la interacción */
+.carousel__hint {
+  margin: 0 0 14px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: #8a8a8a;
+}
+
+/* ========== RESPONSIVE ========== */
+/* Pantallas medianas */
+@media (max-width: 900px) {
+  .stack {
+    height: 235px;
+  }
+
+  .card {
+    width: 145px;
+    height: 170px;
+  }
+
+  .card--one { left: 2%; top: 18%; }
+  .card--two { left: 24%; top: 10%; }
+  .card--three { left: 46%; top: 14%; }
+  .card--four { left: 68%; top: 18%; }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 640px) {
+  .hero {
+    padding-inline: 14px;
+  }
+
+  .hero__title {
+    font-size: clamp(1.8rem, 12vw, 3rem);
+  }
+
+  .stack {
+    height: 190px;
+  }
+
+  .card {
+    width: 108px;
+    height: 132px;
+    border-radius: 14px;
+  }
+
+  .card__art {
+    font-size: 0.78rem;
+  }
+
+  .logos {
+    grid-template-columns: repeat(2, minmax(95px, 1fr));
+  }
+
+  .project-card {
+    flex-basis: 260px;
+  }
+
+  .card--one { left: 0; top: 24%; }
+  .card--two { left: 23%; top: 10%; }
+  .card--three { left: 46%; top: 16%; }
+  .card--four { left: 69%; top: 22%; }
+}
